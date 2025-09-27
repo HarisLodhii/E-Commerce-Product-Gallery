@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <header>
+      <div class="logo">Cartio</div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+      </nav>
+      <div class="search-bar">
+        <input type="text" placeholder="Search products..." />
+      </div>
+    </header>
+
+    <main>
+      <!-- Hidden radio inputs (must be siblings of .product-grid) -->
+      <input type="radio" id="all" name="category" checked />
+      <input type="radio" id="electronics" name="category" />
+      <input type="radio" id="clothing" name="category" />
+      <input type="radio" id="books" name="category" />
+
+      <!-- Sidebar Filter (labels reference the radios above) -->
+      <aside class="sidebar">
+        <h3>Filter by Category</h3>
+
+        <label for="all" class="filter-label">All</label>
+        <label for="electronics" class="filter-label">Electronics</label>
+        <label for="clothing" class="filter-label">Clothing</label>
+        <label for="books" class="filter-label">Books</label>
+      </aside>
+
+      <!-- Product Grid -->
+      <section class="product-grid">
+        <!-- Electronics -->
+        <div class="product electronics">
+          <img src="assets/1.jpeg" alt="Smartphone" />
+          <h4>Smartphone</h4>
+          <p>$499</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product electronics">
+          <img src="assets/2.jpeg" alt="Headphones" />
+          <h4>Headphones</h4>
+          <p>$99</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product electronics">
+          <img src="assets/3.jpeg" alt="Laptop" />
+          <h4>Laptop</h4>
+          <p>$899</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product electronics">
+          <img src="assets/4.jpeg" alt="Camera" />
+          <h4>Camera</h4>
+          <p>$299</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <!-- Clothing -->
+        <div class="product clothing">
+          <img src="assets/5.jpeg" alt="T-Shirt" />
+          <h4>T-Shirt</h4>
+          <p>$25</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product clothing">
+          <img src="assets/6.jpeg" alt="Jacket" />
+          <h4>Jacket</h4>
+          <p>$120</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product clothing">
+          <img src="assets/7.jpeg" alt="Jeans" />
+          <h4>Jeans</h4>
+          <p>$60</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product clothing">
+          <img src="assets/8.jpeg" alt="Shoes" />
+          <h4>Shoes</h4>
+          <p>$80</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <!-- Books -->
+        <div class="product books">
+          <img src="assets/9.jpeg" alt="Fiction Novel" />
+          <h4>Fiction Novel</h4>
+          <p>$15</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product books">
+          <img src="assets/10.jpeg" alt="Science Book" />
+          <h4>Science Book</h4>
+          <p>$30</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product books">
+          <img src="assets/11.jpeg" alt="History Book" />
+          <h4>History Book</h4>
+          <p>$20</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product books">
+          <img src="assets/12.jpeg" alt="Comics" />
+          <h4>Comics</h4>
+          <p>$10</p>
+          <button>Add to Cart</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

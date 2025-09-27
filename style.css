@@ -1,0 +1,186 @@
+/* Basic reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Cambria;
+body {
+  background: hsl(210, 70%, 75%);
+  color: #000000;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: hsl(210, 72%, 64%);
+  color: #fffefe;
+  padding: 14px 24px;
+}
+header .logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.search-bar input {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Layout */
+main {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  align-items: flex-start;
+  /* radios must be direct children of main (hidden) */
+}
+
+/* hide the radios visually but keep accessible */
+main > input[type="radio"] {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  height: fit-content;
+}
+.sidebar h3 {
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+.sidebar .filter-label {
+  display: block;
+  padding: 10px 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  border: 1px solid transparent;
+}
+.sidebar .filter-label:hover {
+  background: #f3f7ff;
+}
+
+/* show active label using the radios (general sibling selector) */
+#all:checked ~ .sidebar .filter-label[for="all"],
+#electronics:checked ~ .sidebar .filter-label[for="electronics"],
+#clothing:checked ~ .sidebar .filter-label[for="clothing"],
+#books:checked ~ .sidebar .filter-label[for="books"] {
+  background: #e9f0ff;
+  color: #0b5ed7;
+  font-weight: 700;
+  border-color: #d6e4ff;
+}
+
+/* Product grid */
+.product-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+/* Card */
+.product {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.product img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.product h4 {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+.product p {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.product button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #0b5ed7;
+  color: #fff;
+  cursor: pointer;
+}
+.product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(10, 10, 10, 0.06);
+}
+
+/* Advanced selector example: style every 4th product slightly differently */
+.product:nth-child(4n) {
+  border-top: 3px solid #f1f3f5;
+}
+
+/* CSS-only filtering rules:
+   When a radio is checked, hide products that do not match that category.
+   We use the general sibling selector (~) so the radio inputs (which are
+   direct children of <main>) can affect .product-grid below them.
+*/
+
+/* When electronics selected -> hide non-electronics */
+#electronics:checked ~ .product-grid .product:not(.electronics) {
+  display: none;
+}
+
+/* When clothing selected -> hide non-clothing */
+#clothing:checked ~ .product-grid .product:not(.clothing) {
+  display: none;
+}
+
+/* When books selected -> hide non-books */
+#books:checked ~ .product-grid .product:not(.books) {
+  display: none;
+}
+
+/* All selected -> show all */
+#all:checked ~ .product-grid .product {
+  display: block;
+}
+
+/* Responsive behavior */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    padding: 14px;
+  }
+  .sidebar {
+    width: 100%;
+    order: 0;
+    margin-bottom: 14px;
+  }
+  .product-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
