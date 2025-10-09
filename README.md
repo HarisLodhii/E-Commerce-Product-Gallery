@@ -1,4 +1,5 @@
-E-Commerce Product Gallery
+E-Commerce Product Gallery:
+
 📌 Overview
 This project is a simple e-commerce product gallery webpage built using HTML and CSS only. 
 It displays products in a responsive grid and allows users to filter products by category 
